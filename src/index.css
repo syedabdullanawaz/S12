@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f7f6f2;
+    color: #111111;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Syne', 'Space Grotesk', sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Custom Logo Arch styling for BEAUTY SALON letter 'A' */
+.arch-icon {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.75em;
+  background-color: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M50 0C22.3858 0 0 22.3858 0 50V100H25V50C25 36.1929 36.1929 25 50 25C63.8071 25 75 36.1929 75 50V100H100V50C100 22.3858 77.6142 0 50 0Z' fill='black'/%3E%3C/svg%3E") no-repeat center / contain;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M50 0C22.3858 0 0 22.3858 0 50V100H25V50C25 36.1929 36.1929 25 50 25C63.8071 25 75 36.1929 75 50V100H100V50C100 22.3858 77.6142 0 50 0Z' fill='black'/%3E%3C/svg%3E") no-repeat center / contain;
+  vertical-align: middle;
+  margin: 0 0.02em;
+}
+
+/* Glassmorphism backdrop */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-nav {
+  background: rgba(247, 246, 242, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
