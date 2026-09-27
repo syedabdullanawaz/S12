@@ -8,7 +8,7 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
     <section className="relative w-full h-screen min-h-[680px] overflow-hidden bg-neutral-900 flex flex-col justify-between">
-      {/* Background Image with subtle zoom overlay */}
+      {/* Background Image */}
       <motion.div
         initial={{ scale: 1.08 }}
         animate={{ scale: 1 }}
@@ -17,17 +17,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       >
         <img
           src="/images/hero-bg.jpg"
-          alt="Lunaria Beauty Salon Model"
+          alt="Alora Salon Model"
           className="w-full h-full object-cover object-center brightness-95 contrast-[1.03]"
         />
-        {/* Soft atmospheric gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/20" />
       </motion.div>
 
-      {/* Top Spacer for fixed header */}
       <div className="relative z-10 pt-24" />
 
-      {/* Hero Subtitle & CTA (Bottom-Left) */}
+      {/* Hero Subtitle & CTA */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pb-16 md:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,7 +34,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           className="max-w-md text-white space-y-3"
         >
           <p className="text-sm md:text-base font-normal tracking-wide text-neutral-100/90 leading-relaxed">
-            Your glow begins here. Welcome to Lunaria.
+            Your glow begins here. Welcome to Alora.
           </p>
 
           <div>
@@ -61,7 +59,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         >
           <h1 className="font-display font-extrabold uppercase text-white tracking-tighter text-[11.5vw] sm:text-[11vw] leading-none select-none flex items-center justify-center gap-1 sm:gap-2">
             <span>BE</span>
-            {/* Arch icon replacing the letter 'A' */}
             <span className="inline-flex items-center justify-center text-current">
               <span className="arch-icon scale-90 sm:scale-100 inline-block"></span>
             </span>

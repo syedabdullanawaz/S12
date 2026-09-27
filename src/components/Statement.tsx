@@ -17,7 +17,6 @@ export const Statement: React.FC = () => {
         >
           <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-2">
             <span>WE</span>
-            {/* Inline Pill Badge 1 */}
             <span className="inline-flex items-center h-[1.1em] px-1 overflow-hidden align-middle my-auto">
               <span className="w-12 sm:w-20 md:w-24 h-7 sm:h-11 md:h-12 rounded-full overflow-hidden border border-black/15 shadow-sm inline-block transform hover:scale-105 transition-transform duration-300">
                 <img
@@ -36,7 +35,6 @@ export const Statement: React.FC = () => {
 
           <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-2 mt-1 sm:mt-2">
             <span>FOR YOU</span>
-            {/* Inline Pill Badge 2 */}
             <span className="inline-flex items-center h-[1.1em] px-1 overflow-hidden align-middle my-auto">
               <span className="w-12 sm:w-20 md:w-24 h-7 sm:h-11 md:h-12 rounded-full overflow-hidden border border-black/15 shadow-sm inline-block transform hover:scale-105 transition-transform duration-300">
                 <img
@@ -63,22 +61,20 @@ export const Statement: React.FC = () => {
           className="mt-10 md:mt-14 max-w-2xl text-base md:text-lg text-neutral-700 leading-relaxed font-normal"
         >
           <p>
-            Lunaria is a premium beauty studio for women, offering expert care for skin, body, and hair. We provide personalized consultations to select treatments that precisely address each client's individual needs.
+            Alora is a premier luxury beauty salon located in HSR Layout, Bengaluru, offering expert care for hair, skin, body, and nails. We provide personalized consultations to select treatments that precisely address each client's individual needs.
           </p>
 
-          {/* Expandable text when Read More is clicked */}
           {readMoreOpen && (
             <motion.p
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               className="mt-4 text-neutral-600 text-sm md:text-base leading-relaxed"
             >
-              Our sanctuary blends organic bio-botanicals with cutting-edge non-invasive clinical aesthetic techniques. Every session begins with a skin analysis to balance your natural radiance, nourish deep tissue layers, and promote lasting confidence.
+              Our sanctuary in Radhakrishnan Grand blends organic aromatherapy oils with cutting-edge non-invasive clinical aesthetic techniques. From acne treatments and balayage to gel manicures and relaxing spa therapies, every session is performed with skill and care.
             </motion.p>
           )}
         </motion.div>
 
-        {/* Read More Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -19,7 +19,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [selectedService, setSelectedService] = useState<ServiceItem>(
     preselectedService || servicesData[0]
   );
-  const [selectedDate, setSelectedDate] = useState<string>('2026-09-28');
+  const [selectedDate, setSelectedDate] = useState<string>('2026-09-29');
   const [selectedTime, setSelectedTime] = useState<string>('11:00 AM');
   const [clientInfo, setClientInfo] = useState({ name: '', email: '', phone: '' });
   const [bookingRef, setBookingRef] = useState<string>('');
@@ -32,7 +32,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         alert('Please provide your name and email address.');
         return;
       }
-      const ref = 'LUN-' + Math.floor(100000 + Math.random() * 900000);
+      const ref = 'ALORA-' + Math.floor(100000 + Math.random() * 900000);
       setBookingRef(ref);
       setStep(4);
     } else {
@@ -45,10 +45,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     onClose();
   };
 
-  const timeSlots = ['10:00 AM', '11:00 AM', '01:30 PM', '03:00 PM', '04:30 PM', '06:00 PM'];
+  const timeSlots = ['09:30 AM', '11:00 AM', '01:30 PM', '03:00 PM', '05:00 PM', '07:00 PM'];
   const dates = [
-    { label: 'Tomorrow', date: 'Mon, Sep 28', value: '2026-09-28' },
-    { label: 'Tuesday', date: 'Tue, Sep 29', value: '2026-09-29' },
+    { label: 'Today', date: 'Mon, Sep 28', value: '2026-09-28' },
+    { label: 'Tomorrow', date: 'Tue, Sep 29', value: '2026-09-29' },
     { label: 'Wednesday', date: 'Wed, Sep 30', value: '2026-09-30' },
     { label: 'Thursday', date: 'Thu, Oct 01', value: '2026-10-01' },
     { label: 'Friday', date: 'Fri, Oct 02', value: '2026-10-02' },
@@ -81,8 +81,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
           {/* Header */}
           <div className="mb-8">
-            <span className="text-xs uppercase tracking-widest font-bold text-neutral-500 block mb-1">
-              Lunaria Appointments
+            <span className="text-xs uppercase tracking-widest font-bold text-amber-600 block mb-1">
+              Alora Salon Appointments • HSR Layout
             </span>
             <h3 className="font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-black">
               {step === 4 ? 'Appointment Confirmed' : 'Book Your Treatment'}
@@ -122,7 +122,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       <p className="text-xs text-neutral-500 mt-0.5">{srv.duration}</p>
                     </div>
                     <div className="text-right">
-                      <span className="font-display font-bold text-base">${srv.price}</span>
+                      <span className="font-display font-bold text-base">₹{srv.price}</span>
                     </div>
                   </div>
                 ))}
@@ -184,7 +184,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <div className="bg-white p-4 border border-black/15 mb-4 text-xs space-y-1">
                 <p className="font-bold text-black uppercase">{selectedService.title}</p>
                 <p className="text-neutral-600">
-                  {selectedDate} at {selectedTime} (${selectedService.price})
+                  {selectedDate} at {selectedTime} (₹{selectedService.price})
+                </p>
+                <p className="text-xs text-neutral-400 pt-1">
+                  Location: Alora Salon, 27th Main Rd, 1st Sector, HSR Layout, Bengaluru
                 </p>
               </div>
 
@@ -230,7 +233,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   <Phone className="w-4 h-4 absolute left-3 top-3 text-neutral-400" />
                   <input
                     type="tel"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="063642 17307"
                     value={clientInfo.phone}
                     onChange={(e) => setClientInfo({ ...clientInfo, phone: e.target.value })}
                     className="w-full pl-10 pr-4 py-2.5 bg-white border border-black/20 focus:border-black focus:outline-none text-sm"
@@ -244,15 +247,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           {step === 4 && (
             <div className="text-center py-6 space-y-6">
               <div className="w-16 h-16 bg-black text-white rounded-full mx-auto flex items-center justify-center">
-                <CheckCircle2 className="w-9 h-9" />
+                <CheckCircle2 className="w-9 h-9 text-amber-400" />
               </div>
 
               <div>
                 <span className="text-xs uppercase tracking-widest font-mono text-neutral-500 block mb-1">
-                  Confirmation Code: {bookingRef}
+                  Booking Reference: {bookingRef}
                 </span>
                 <h4 className="font-display font-extrabold uppercase text-xl text-black">
-                  We Look Forward to Welcoming You
+                  We Look Forward to Welcoming You to Alora
                 </h4>
               </div>
 
@@ -268,12 +271,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   </span>
                 </div>
                 <div className="flex justify-between border-b border-black/10 pb-2">
+                  <span className="text-neutral-500">Location:</span>
+                  <span className="font-bold text-black">HSR Layout, Bengaluru</span>
+                </div>
+                <div className="flex justify-between border-b border-black/10 pb-2">
                   <span className="text-neutral-500">Client:</span>
                   <span className="font-bold text-black">{clientInfo.name}</span>
                 </div>
                 <div className="flex justify-between pt-1">
-                  <span className="text-neutral-500">Total:</span>
-                  <span className="font-bold text-black text-sm">${selectedService.price}</span>
+                  <span className="text-neutral-500">Total Price:</span>
+                  <span className="font-bold text-black text-sm">₹{selectedService.price}</span>
                 </div>
               </div>
 
@@ -281,7 +288,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 onClick={resetForm}
                 className="px-8 py-3.5 bg-black text-white font-bold uppercase text-xs tracking-widest hover:bg-neutral-800 transition-colors"
               >
-                Close & Return to Studio
+                Close & Return to Alora Studio
               </button>
             </div>
           )}

@@ -33,7 +33,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onScrollToService
             scrolled ? 'text-black' : 'text-white'
           }`}
         >
-          LUNARIA<span className="text-amber-600">.</span>
+          ALORA<span className="text-amber-600">.</span>
         </a>
 
         {/* Desktop Nav */}
@@ -51,16 +51,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onScrollToService
             About Studio
           </a>
           <a
-            href="#rituals"
-            className={`transition-colors hover:opacity-75 ${scrolled ? 'text-black' : 'text-white'}`}
-          >
-            Special Rituals
-          </a>
-          <a
             href="#contact"
             className={`transition-colors hover:opacity-75 ${scrolled ? 'text-black' : 'text-white'}`}
           >
-            Contact
+            Contact & Location
           </a>
         </nav>
 
@@ -87,7 +81,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onScrollToService
           className={`md:hidden p-2 rounded-full ${
             scrolled ? 'text-black hover:bg-black/5' : 'text-white hover:bg-white/10'
           }`}
-
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
