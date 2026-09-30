@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+// @ts-ignore
+import SplitText from './SplitText';
 
 export const Statement: React.FC = () => {
   const [readMoreOpen, setReadMoreOpen] = useState(false);
@@ -7,89 +9,82 @@ export const Statement: React.FC = () => {
   return (
     <section className="py-24 md:py-36 bg-[#f7f6f2] text-black px-6 md:px-12 overflow-hidden border-b border-black/5">
       <div className="max-w-6xl mx-auto text-center flex flex-col items-center">
-        {/* Large Statement Title with Inline Image Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.9 }}
-          className="font-cobe font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight uppercase leading-[1.15] max-w-5xl"
-        >
+        {/* Large Statement Title with Inline Image Badges and SplitText Animation */}
+        <div className="font-cobe font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight uppercase leading-[1.15] max-w-5xl">
           <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-2">
-            <span>WE</span>
+            <SplitText
+              text="WE"
+              tag="span"
+              className="inline-block"
+              delay={30}
+              duration={0.8}
+            />
             <span className="inline-flex items-center h-[1.1em] px-1 overflow-hidden align-middle my-auto">
               <span className="w-12 sm:w-20 md:w-24 h-7 sm:h-11 md:h-12 rounded-full overflow-hidden border border-black/15 shadow-sm inline-block transform hover:scale-105 transition-transform duration-300">
                 <img
-                  src="/images/skincare-card.jpg"
+                  src="/images/services/skin-care.jpg"
                   alt="Beauty thumbnail"
                   className="w-full h-full object-cover brightness-105"
                 />
               </span>
             </span>
-            <span>HELP CREATE</span>
+            <SplitText
+              text="HELP CREATE"
+              tag="span"
+              className="inline-block"
+              delay={30}
+              duration={0.8}
+            />
           </div>
 
           <div className="mt-1 sm:mt-2">
-            <span>MOMENTS OF BEAUTY</span>
+            <SplitText
+              text="MOMENTS OF BEAUTY"
+              tag="span"
+              className="inline-block"
+              delay={30}
+              duration={0.8}
+            />
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-2 mt-1 sm:mt-2">
-            <span>FOR YOU</span>
+            <SplitText
+              text="FOR YOU"
+              tag="span"
+              className="inline-block"
+              delay={30}
+              duration={0.8}
+            />
             <span className="inline-flex items-center h-[1.1em] px-1 overflow-hidden align-middle my-auto">
               <span className="w-12 sm:w-20 md:w-24 h-7 sm:h-11 md:h-12 rounded-full overflow-hidden border border-black/15 shadow-sm inline-block transform hover:scale-105 transition-transform duration-300">
                 <img
-                  src="/images/hair-card.jpg"
+                  src="/images/services/hair-treatment.jpg"
                   alt="Glow thumbnail"
                   className="w-full h-full object-cover brightness-105"
                 />
               </span>
             </span>
-            <span>AND</span>
+            <SplitText
+              text="AND"
+              tag="span"
+              className="inline-block"
+              delay={30}
+              duration={0.8}
+            />
           </div>
 
           <div className="mt-1 sm:mt-2">
-            <span>YOUR GLOW</span>
+            <SplitText
+              text="YOUR GLOW"
+              tag="span"
+              className="inline-block"
+              delay={30}
+              duration={0.8}
+            />
           </div>
-        </motion.div>
+        </div>
 
-        {/* Studio Specs Card matching reference Screen 3 (Mobile Only) */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="md:hidden mt-8 w-full max-w-xl mx-auto relative h-56 rounded-2xl overflow-hidden text-white flex flex-col justify-between p-6 border border-black/10 shadow-lg group text-left"
-        >
-          {/* Background image */}
-          <img
-            src="/images/body-card.jpg"
-            alt="Alora Studio Atmosphere"
-            className="absolute inset-0 w-full h-full object-cover brightness-[0.55] contrast-[1.05]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
 
-          {/* Stats top */}
-          <div className="relative z-10 flex items-start justify-between w-full">
-            <div>
-              <span className="text-xs uppercase tracking-widest text-neutral-300 font-semibold block">Years</span>
-              <span className="font-cobe font-extrabold text-3xl text-white">5</span>
-            </div>
-            <div className="text-right">
-              <span className="text-xs uppercase tracking-widest text-neutral-300 font-semibold block">Area:</span>
-              <span className="font-cobe font-extrabold text-2xl text-white">465 SQ.M.</span>
-            </div>
-          </div>
-
-          {/* Read More button */}
-          <div className="relative z-10 flex justify-start">
-            <button
-              onClick={() => setReadMoreOpen(!readMoreOpen)}
-              className="text-sm font-semibold text-white border-b border-white pb-0.5 hover:text-neutral-300 hover:border-neutral-300 transition-colors cursor-pointer"
-            >
-              {readMoreOpen ? 'Show Less' : 'Read More'}
-            </button>
-          </div>
-        </motion.div>
 
         {/* Subtitle Body Text */}
         <motion.div

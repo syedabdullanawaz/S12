@@ -86,3 +86,38 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
+
+/* Infinite Marquee Animations */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-scroll-left {
+  display: flex;
+  animation: marquee-left 48s linear infinite !important;
+}
+
+.animate-marquee-scroll-right {
+  display: flex;
+  animation: marquee-right 48s linear infinite !important;
+}
+
+.group:hover .animate-marquee-scroll-left,
+.group:hover .animate-marquee-scroll-right {
+  animation-play-state: paused;
+}
+

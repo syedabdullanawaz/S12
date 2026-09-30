@@ -22,7 +22,7 @@ export const fullServicesCategories: ServiceMainCategory[] = [
   {
     id: 'hair-essentials',
     name: 'Hair Essentials',
-    avatar: '/images/avatars/hair-essentials.jpg',
+    avatar: '/images/services/hair-essential.jpg',
     subCategories: [
       {
         id: 'women-hair-cut',
@@ -60,7 +60,7 @@ export const fullServicesCategories: ServiceMainCategory[] = [
   {
     id: 'hair-colour',
     name: 'Hair Colour',
-    avatar: '/images/avatars/hair-colour.jpg',
+    avatar: '/images/services/hair-colour.jpg',
     subCategories: [
       {
         id: 'global-colour',
@@ -78,7 +78,7 @@ export const fullServicesCategories: ServiceMainCategory[] = [
   {
     id: 'skin-acne-treatments',
     name: 'Skin Care & Acne',
-    avatar: '/images/avatars/face-detan.jpg',
+    avatar: '/images/services/skin-care.jpg',
     subCategories: [
       {
         id: 'acne-facial-care',
@@ -96,7 +96,7 @@ export const fullServicesCategories: ServiceMainCategory[] = [
   {
     id: 'waxing-laser',
     name: 'Waxing & Laser',
-    avatar: '/images/avatars/waxing.jpg',
+    avatar: '/images/services/waxing-laser.jpg',
     subCategories: [
       {
         id: 'waxing-body',
@@ -115,7 +115,7 @@ export const fullServicesCategories: ServiceMainCategory[] = [
   {
     id: 'eyebrow-lash-makeup',
     name: 'Brows, Lashes & Makeup',
-    avatar: '/images/avatars/treatments.jpg',
+    avatar: '/images/services/brows-lashes-makeup.jpg',
     subCategories: [
       {
         id: 'brow-lash-services',
@@ -134,7 +134,7 @@ export const fullServicesCategories: ServiceMainCategory[] = [
   {
     id: 'nail-bar',
     name: 'Nail Bar & Extensions',
-    avatar: '/images/avatars/nail-bar.jpg',
+    avatar: '/images/services/nail-bar.jpg',
     subCategories: [
       {
         id: 'nail-care',
@@ -152,7 +152,7 @@ export const fullServicesCategories: ServiceMainCategory[] = [
   {
     id: 'mani-pedi',
     name: 'Mani & Pedi',
-    avatar: '/images/avatars/mani-pedi.jpg',
+    avatar: '/images/services/mani-pedi.jpg',
     subCategories: [
       {
         id: 'mani-pedi-list',
@@ -170,7 +170,7 @@ export const fullServicesCategories: ServiceMainCategory[] = [
   {
     id: 'massage-spa',
     name: 'Massage & Spa',
-    avatar: '/images/avatars/massage-spa.jpg',
+    avatar: '/images/services/massage-spa.jpg',
     subCategories: [
       {
         id: 'spa-therapies',
@@ -188,7 +188,7 @@ export const fullServicesCategories: ServiceMainCategory[] = [
   {
     id: 'mens-grooming',
     name: "Men's Grooming",
-    avatar: '/images/avatars/mens-grooming.jpg',
+    avatar: '/images/services/mens-grooming.jpg',
     subCategories: [
       {
         id: 'men-grooming-list',

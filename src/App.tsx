@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { Statement } from './components/Statement';
 import { ServicesOverview } from './components/ServicesOverview';
 import { ServicesDirectory } from './components/ServicesDirectory';
+import { ReviewsMarquee } from './components/ReviewsMarquee';
 import { ServiceModal } from './components/ServiceModal';
 import { BookingModal } from './components/BookingModal';
 import { ServicesPage } from './components/ServicesPage';
@@ -77,6 +78,9 @@ export const App: React.FC = () => {
             services={servicesData}
             onSelectService={(service) => setActiveModalService(service)}
           />
+
+          {/* Client Reviews Marquee */}
+          <ReviewsMarquee />
 
           {/* Footer */}
           <Footer onOpenBooking={handleOpenServicesPage} />
