@@ -70,45 +70,58 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   const [direction, setDirection] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
 
+  // Pre-load all offer images into browser memory to eliminate image decode lag
+  useEffect(() => {
+    OFFERS.forEach((offer) => {
+      const imgM = new Image();
+      imgM.src = offer.mobileImage;
+      const imgD = new Image();
+      imgD.src = offer.desktopImage;
+    });
+  }, []);
+
   const nextSlide = useCallback(() => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % OFFERS.length);
   }, []);
 
-  // 2 seconds auto-scroll
+  const goToSlide = (idx: number) => {
+    if (idx === currentIndex) return;
+    setDirection(idx > currentIndex ? 1 : -1);
+    setCurrentIndex(idx);
+  };
+
+  // 3 seconds auto-scroll interval (optimized for low-end devices and smooth pacing)
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
       nextSlide();
-    }, 2000);
+    }, 3000);
     return () => clearInterval(timer);
   }, [nextSlide, isPaused]);
 
   const currentOffer = OFFERS[currentIndex];
 
+  // Pure hardware-accelerated GPU transitions (no scale resampling, no spring physics)
   const slideVariants = {
     enter: (dir: number) => ({
       x: dir > 0 ? '100%' : '-100%',
       opacity: 0,
-      scale: 1.02,
     }),
     center: {
       x: 0,
       opacity: 1,
-      scale: 1,
       transition: {
-        x: { type: 'spring', stiffness: 280, damping: 28 },
-        opacity: { duration: 0.4 },
-        scale: { duration: 0.6 },
+        x: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+        opacity: { duration: 0.45, ease: 'easeOut' },
       },
     },
     exit: (dir: number) => ({
       x: dir < 0 ? '100%' : '-100%',
       opacity: 0,
-      scale: 0.98,
       transition: {
-        x: { type: 'spring', stiffness: 280, damping: 28 },
-        opacity: { duration: 0.3 },
+        x: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+        opacity: { duration: 0.35, ease: 'easeIn' },
       },
     }),
   };
@@ -117,9 +130,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
     <section
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-full h-[90vh] min-h-[600px] max-h-[850px] overflow-hidden bg-black text-white flex flex-col justify-end"
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+      className="relative w-full h-[90vh] min-h-[580px] max-h-[850px] overflow-hidden bg-black text-white flex flex-col justify-end select-none"
     >
-      {/* 4K Ultra-Crisp Background Image Slider */}
+      {/* Background Image Slider with hardware-accelerated transforms */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
@@ -130,36 +145,39 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             animate="center"
             exit="exit"
             className="absolute inset-0 w-full h-full"
+            style={{ willChange: 'transform, opacity' }}
           >
             <picture className="block w-full h-full">
               {/* Desktop specific offer image */}
               <source media="(min-width: 768px)" srcSet={currentOffer.desktopImage} />
-              {/* Mobile specific offer image */}
+              {/* Mobile specific offer image (no heavy CSS filters for silky smooth 60fps) */}
               <img
                 src={currentOffer.mobileImage}
                 alt={currentOffer.title}
-                className="w-full h-full object-cover object-center contrast-[1.06] brightness-[0.95] saturate-[1.08] transform scale-[1.01]"
+                loading="eager"
+                decoding="async"
+                className="w-full h-full object-cover object-center"
               />
             </picture>
-            {/* Subtle Gradient Overlay solely at the bottom for sharp text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+            {/* Smooth gradient overlay for contrast and crisp typography without GPU filter overhead */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent pointer-events-none" />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Main Bottom Content & Minimal Progress Bar */}
+      {/* Main Bottom Content & Slide Navigation */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pb-8 md:pb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
           {/* Left Side: Offer Title, Minimal White Tag, Promo Code & CTA */}
-          <div className="md:col-span-8 lg:col-span-7 space-y-4">
-            <AnimatePresence mode="wait">
+          <div className="md:col-span-8 lg:col-span-8 space-y-3 sm:space-y-4">
+            <AnimatePresence mode="popLayout">
               <motion.div
                 key={`content-${currentOffer.id}`}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.35 }}
-                className="space-y-3"
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="space-y-2.5 sm:space-y-3"
               >
                 {/* Minimalist White Discount Badge & Validity */}
                 <div className="inline-flex items-center gap-3">
@@ -178,22 +196,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                 </h2>
 
                 {/* Offer Description */}
-                <p className="text-neutral-200 text-sm sm:text-base md:text-lg max-w-2xl font-normal leading-relaxed drop-shadow">
+                <p className="text-neutral-200 text-sm sm:text-base md:text-lg max-w-2xl font-normal leading-relaxed drop-shadow line-clamp-2 sm:line-clamp-none">
                   {currentOffer.description}
                 </p>
 
-                {/* Minimal Monochrome Promo Code & Claim CTA */}
-                <div className="pt-2 flex flex-wrap items-center gap-4">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-black/70 backdrop-blur-md border border-white/20 text-xs sm:text-sm shadow-xl">
-                    <span className="text-neutral-400 font-normal uppercase tracking-wider">Use Code:</span>
-                    <span className="font-mono font-bold text-white tracking-widest text-sm sm:text-base">
+                {/* Promo Code & Claim CTA (No backdrop-blur to keep mobile GPUs fast) */}
+                <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+                  <div className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg bg-neutral-950/85 border border-white/20 text-xs sm:text-sm shadow-lg">
+                    <span className="text-neutral-400 font-normal uppercase tracking-wider text-[11px] sm:text-xs">Use Code:</span>
+                    <span className="font-mono font-bold text-white tracking-widest text-xs sm:text-sm md:text-base">
                       {currentOffer.promoCode}
                     </span>
                   </div>
 
                   <button
                     onClick={onOpenBooking}
-                    className="group relative inline-flex items-center gap-2.5 px-6 py-3 rounded-lg bg-white text-black font-cobe font-extrabold uppercase text-sm sm:text-base tracking-wider hover:bg-neutral-200 transition-all duration-300 shadow-2xl hover:scale-[1.02] cursor-pointer"
+                    className="group relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-white text-black font-cobe font-extrabold uppercase text-xs sm:text-sm md:text-base tracking-wider hover:bg-neutral-200 transition-all duration-300 shadow-2xl active:scale-95 cursor-pointer"
                   >
                     <span>Claim Offer & Book</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -201,6 +219,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                 </div>
               </motion.div>
             </AnimatePresence>
+          </div>
+
+          {/* Right Side: Slide Indicator Bars */}
+          <div className="md:col-span-4 lg:col-span-4 flex items-center justify-start md:justify-end gap-2 pt-2 md:pt-0">
+            {OFFERS.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => goToSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`h-1.5 transition-all duration-400 rounded-full cursor-pointer ${
+                  idx === currentIndex
+                    ? 'w-9 sm:w-12 bg-white shadow-xs'
+                    : 'w-2.5 sm:w-3 bg-white/35 hover:bg-white/60'
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>

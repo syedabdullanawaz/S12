@@ -24,6 +24,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [clientInfo, setClientInfo] = useState({ name: '', email: '', phone: '' });
   const [bookingRef, setBookingRef] = useState<string>('');
 
+  React.useEffect(() => {
+    if (isOpen) {
+      if (preselectedService) {
+        setSelectedService(preselectedService);
+        setStep(2);
+      } else {
+        setStep(1);
+      }
+    }
+  }, [isOpen, preselectedService]);
+
   if (!isOpen) return null;
 
   const handleNext = () => {

@@ -25,3 +25,29 @@ export interface ServiceCategory {
   bgImage: string;
   iconType: 'cross' | 'square-grid' | 'circle';
 }
+
+export interface CategoryModalServiceItem {
+  id: string;
+  name: string;
+  price: number;
+  currency: string;
+  gender: 'women' | 'men' | 'all';
+  description?: string;
+}
+
+export interface CategoryModalSubCategory {
+  id: string;
+  title: string;
+  items: CategoryModalServiceItem[];
+}
+
+export interface CategoryModalData {
+  id: string;
+  name: string;
+  title: string;
+  count: string;
+  rating: number;
+  description: string;
+  images: string[];
+  subCategories: CategoryModalSubCategory[];
+}

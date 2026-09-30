@@ -29,14 +29,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onScrollToService
         {/* Brand Logo */}
         <a
           href="#"
-          className="relative flex items-center transition-opacity hover:opacity-85 h-8 sm:h-9"
+          className="relative flex items-center transition-opacity hover:opacity-85 h-10 sm:h-11 md:h-12"
           aria-label="Alora Home"
         >
           {/* White Logo (for transparent dark hero navbar) */}
           <img
             src="/images/logo_white.png"
             alt="Alora Logo"
-            className={`h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 ${
+            className={`h-10 sm:h-11 md:h-12 w-auto object-contain transition-opacity duration-300 ${
               scrolled || mobileMenuOpen ? 'opacity-0 pointer-events-none absolute left-0' : 'opacity-100'
             }`}
           />
@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onScrollToService
           <img
             src="/images/logo_dark.png"
             alt="Alora Logo"
-            className={`h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 ${
+            className={`h-10 sm:h-11 md:h-12 w-auto object-contain transition-opacity duration-300 ${
               scrolled || mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none absolute left-0'
             }`}
           />

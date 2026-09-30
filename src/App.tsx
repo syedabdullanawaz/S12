@@ -3,19 +3,17 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Statement } from './components/Statement';
 import { ServicesOverview } from './components/ServicesOverview';
-import { ServicesDirectory } from './components/ServicesDirectory';
 import { ReviewsMarquee } from './components/ReviewsMarquee';
 import { ServiceModal } from './components/ServiceModal';
 import { BookingModal } from './components/BookingModal';
 import { ServicesPage } from './components/ServicesPage';
 import { Footer } from './components/Footer';
-import { ServiceItem } from './types';
-import { servicesData } from './data/servicesData';
+import { ServiceItem, CategoryModalData } from './types';
 
 export const App: React.FC = () => {
   const [view, setView] = useState<'home' | 'services'>('home');
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'skincare' | 'body' | 'hair'>('skincare');
   const [selectedOverviewCategory, setSelectedOverviewCategory] = useState<string>('hair-essentials');
+  const [activeModalCategory, setActiveModalCategory] = useState<CategoryModalData | null>(null);
   const [activeModalService, setActiveModalService] = useState<ServiceItem | null>(null);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingService, setBookingService] = useState<ServiceItem | null>(null);
@@ -69,16 +67,9 @@ export const App: React.FC = () => {
 
           {/* 8-Card Services Overview Grid */}
           <ServicesOverview
+            onSelectCategory={(category) => setActiveModalCategory(category)}
             onSelectService={(service) => setActiveModalService(service)}
             onViewAll={handleOpenServicesPage}
-          />
-
-          {/* Complete Filterable Services Directory */}
-          <ServicesDirectory
-            selectedCategory={selectedCategory}
-            onCategoryChange={setSelectedCategory}
-            services={servicesData}
-            onSelectService={(service) => setActiveModalService(service)}
           />
 
           {/* Client Reviews Marquee */}
@@ -89,9 +80,14 @@ export const App: React.FC = () => {
 
           {/* Interactive Service Details Popup Modal */}
           <ServiceModal
+            category={activeModalCategory}
             service={activeModalService}
-            onClose={() => setActiveModalService(null)}
+            onClose={() => {
+              setActiveModalCategory(null);
+              setActiveModalService(null);
+            }}
             onBookService={(service) => handleOpenBookingWithService(service)}
+            onViewAllCategoryServices={(catId) => handleSelectOverviewCategory(catId)}
           />
         </>
       )}

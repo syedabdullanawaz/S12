@@ -130,13 +130,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ initialCategoryId, o
                     onClick={() => setSelectedCategoryId(cat.id)}
                     className={`flex flex-col items-center justify-center p-3.5 rounded-xl cursor-pointer transition-all duration-200 shrink-0 min-w-[110px] sm:min-w-[125px] ${
                       isSelected
-                        ? 'bg-neutral-900 border-2 border-black shadow-md text-white'
+                        ? 'bg-white border-2 border-black shadow-sm text-black scale-105'
                         : 'bg-white/80 border border-black/10 hover:border-black/30 hover:bg-white text-neutral-800'
                     }`}
                   >
                     <div
                       className={`w-16 h-16 sm:w-18 sm:h-18 rounded-full overflow-hidden mb-2.5 border-2 shadow-xs transition-transform ${
-                        isSelected ? 'border-amber-400 scale-105 ring-2 ring-white/20' : 'border-black/15'
+                        isSelected ? 'border-black scale-105 ring-2 ring-black/10' : 'border-black/15'
                       }`}
                     >
                       <img
@@ -147,7 +147,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ initialCategoryId, o
                     </div>
                     <span
                       className={`text-xs text-center leading-tight max-w-[100px] ${
-                        isSelected ? 'text-white font-cobe font-bold' : 'text-neutral-800 font-medium'
+                        isSelected ? 'text-black font-cobe font-bold' : 'text-neutral-800 font-medium'
                       }`}
                     >
                       {cat.name}
@@ -336,13 +336,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ initialCategoryId, o
                     onClick={() => setSelectedCategoryId(cat.id)}
                     className={`flex flex-col items-center p-2 rounded-lg cursor-pointer transition-all ${
                       isSelected
-                        ? 'bg-neutral-900 border border-black shadow-xs text-white'
+                        ? 'bg-white border-2 border-black shadow-xs text-black scale-[1.02]'
                         : 'bg-white border border-black/10 hover:border-black/30 text-neutral-800'
                     }`}
                   >
                     <div
                       className={`w-12 h-12 rounded-full overflow-hidden mb-1 border-2 transition-transform ${
-                        isSelected ? 'border-amber-400 scale-105' : 'border-black/10'
+                        isSelected ? 'border-black scale-105 ring-1 ring-black/15' : 'border-black/10'
                       }`}
                     >
                       <img
@@ -353,7 +353,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ initialCategoryId, o
                     </div>
                     <span
                       className={`text-[10px] text-center leading-tight max-w-[70px] ${
-                        isSelected ? 'font-cobe font-bold text-white' : 'font-medium text-neutral-700'
+                        isSelected ? 'font-cobe font-bold text-black' : 'font-medium text-neutral-700'
                       }`}
                     >
                       {cat.name}
