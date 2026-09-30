@@ -114,10 +114,10 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
                       {subCat.items.map((item) => (
                         <div
                           key={item.id}
-                          className="py-2 sm:py-2.5 px-2 flex items-center justify-between gap-2.5 hover:bg-neutral-50/80 transition-colors"
+                          className="py-2.5 sm:py-3 px-2 sm:px-2.5 hover:bg-neutral-50/80 transition-colors"
                         >
-                          <div className="space-y-0.5 min-w-0 pr-1">
-                            <div className="flex items-center gap-1.5 flex-wrap">
+                          <div className="flex items-baseline justify-between gap-2.5">
+                            <div className="flex items-center gap-1.5 flex-wrap min-w-0">
                               <span className="font-product-sans font-bold text-xs sm:text-sm md:text-base text-black leading-tight">
                                 {item.name}
                               </span>
@@ -127,35 +127,13 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
                                 </span>
                               )}
                             </div>
-                            <p className="font-cobe font-bold text-xs sm:text-sm md:text-base text-black">
+                            <span className="font-cobe font-bold text-xs sm:text-sm md:text-base text-black shrink-0">
                               {item.currency || '₹'}{item.price.toLocaleString()}
-                            </p>
+                            </span>
                           </div>
-
-                          <button
-                            onClick={() => {
-                              onBookService({
-                                id: item.id,
-                                title: item.name,
-                                price: item.price,
-                                currency: item.currency || '₹',
-                                duration: '45min',
-                                description: `Bespoke ${item.name} performed by senior specialists at Alora.`,
-                                category: 'hair',
-                                rating: modalRating,
-                                idealFor: 'Instant perfection and premium salon care',
-                                involved: [
-                                  { title: 'Personalized Consultation', description: 'Detailed scalp or skin assessment and formula selection.' },
-                                  { title: 'Master Specialist Treatment', description: 'Execution using high-grade organic formulas.' }
-                                ],
-                                images: modalImages,
-                              });
-                              onClose();
-                            }}
-                            className="px-3.5 sm:px-5 py-1.5 bg-black text-white font-product-sans font-bold text-[11px] sm:text-xs uppercase tracking-wider hover:bg-neutral-800 transition-all rounded-full shadow-2xs active:scale-95 shrink-0 cursor-pointer"
-                          >
-                            Book
-                          </button>
+                          <p className="text-[11px] sm:text-xs text-neutral-600 mt-1 leading-snug">
+                            {item.description || `Bespoke ${item.name} treatment delivered with premium organic formulas by Alora specialists.`}
+                          </p>
                         </div>
                       ))}
                     </div>
@@ -163,19 +141,19 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
                 ))}
               </div>
 
-              {/* Bottom Footer Link */}
-              <div className="pt-2 sm:pt-2.5 border-t border-black/10 flex items-center justify-between text-xs shrink-0">
-                <span className="text-neutral-500 font-medium hidden sm:inline text-[11px]">
-                  Looking for custom packages or full menu?
+              {/* Bottom Footer Call-To-Action */}
+              <div className="pt-2.5 sm:pt-3 border-t border-black/10 flex flex-col sm:flex-row items-center justify-between gap-2.5 shrink-0 bg-white">
+                <span className="text-neutral-500 font-medium text-center sm:text-left text-[11px] sm:text-xs">
+                  Booking is done from our dedicated booking menu.
                 </span>
                 <button
                   onClick={() => {
                     onClose();
                     onViewAllCategoryServices?.(category.id);
                   }}
-                  className="font-bold text-black uppercase tracking-wider underline hover:text-neutral-600 cursor-pointer text-xs ml-auto flex items-center gap-1"
+                  className="w-full sm:w-auto px-4 sm:px-5 py-2 sm:py-2.5 bg-black text-white font-product-sans font-bold text-xs uppercase tracking-wider hover:bg-neutral-800 transition-all rounded-full shadow-2xs active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
                 >
-                  <span>View Full Menu</span>
+                  <span>Book in Services Menu</span>
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -222,15 +200,23 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-black/10">
+                <div className="pt-3 border-t border-black/10 flex flex-col sm:flex-row items-center justify-between gap-2.5">
+                  <span className="text-neutral-500 font-medium text-center sm:text-left text-[11px] sm:text-xs">
+                    Booking is done from our dedicated booking menu.
+                  </span>
                   <button
                     onClick={() => {
-                      onBookService(service);
                       onClose();
+                      if (onViewAllCategoryServices) {
+                        onViewAllCategoryServices(service.category);
+                      } else {
+                        onBookService(service);
+                      }
                     }}
-                    className="w-full sm:w-auto px-8 md:px-10 py-2.5 sm:py-3 bg-black text-white font-bold uppercase text-xs tracking-widest hover:bg-neutral-800 transition-colors shadow-md cursor-pointer active:scale-95"
+                    className="w-full sm:w-auto px-6 py-2.5 bg-black text-white font-bold uppercase text-xs tracking-widest hover:bg-neutral-800 transition-all rounded-full shadow-sm cursor-pointer active:scale-95 flex items-center justify-center gap-1.5"
                   >
-                    Book Now
+                    <span>Book in Services Menu</span>
+                    <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>
