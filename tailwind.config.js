@@ -9,6 +9,10 @@ export default {
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
         display: ['Syne', 'Space Grotesk', 'sans-serif'],
+        cobe: ['"Cobe Bold"', 'Cobe', 'sans-serif'],
+        subheading: ['"Cobe Bold"', 'Cobe', 'sans-serif'],
+        'product-sans': ['"Product Sans"', 'sans-serif'],
+        productsans: ['"Product Sans"', 'sans-serif'],
         mono: ['Space Mono', 'monospace'],
       },
       colors: {

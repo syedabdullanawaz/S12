@@ -22,18 +22,32 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onScrollToService
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? 'py-4 glass-nav shadow-sm border-b border-black/5' : 'py-6 bg-transparent text-white'
+        scrolled || mobileMenuOpen ? 'py-3 sm:py-4 glass-nav shadow-sm border-b border-black/5' : 'py-5 sm:py-6 bg-transparent text-white'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Brand Logo */}
         <a
           href="#"
-          className={`font-display text-2xl font-bold tracking-wider transition-colors uppercase ${
-            scrolled ? 'text-black' : 'text-white'
-          }`}
+          className="relative flex items-center transition-opacity hover:opacity-85 h-8 sm:h-9"
+          aria-label="Alora Home"
         >
-          LUNARIA<span className="text-amber-600">.</span>
+          {/* White Logo (for transparent dark hero navbar) */}
+          <img
+            src="/images/logo_white.png"
+            alt="Alora Logo"
+            className={`h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 ${
+              scrolled || mobileMenuOpen ? 'opacity-0 pointer-events-none absolute left-0' : 'opacity-100'
+            }`}
+          />
+          {/* Dark Logo (for scrolled glass navbar) */}
+          <img
+            src="/images/logo_dark.png"
+            alt="Alora Logo"
+            className={`h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 ${
+              scrolled || mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none absolute left-0'
+            }`}
+          />
         </a>
 
         {/* Desktop Nav */}
@@ -81,15 +95,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onScrollToService
           </button>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
+        {/* Mobile Menu Button matching reference */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className={`md:hidden p-2 rounded-full ${
-            scrolled ? 'text-black hover:bg-black/5' : 'text-white hover:bg-white/10'
+          aria-label="Toggle navigation menu"
+          className={`md:hidden px-3.5 py-1.5 rounded-md border text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
+            scrolled || mobileMenuOpen
+              ? 'border-black/25 bg-white/70 backdrop-blur-md text-black hover:bg-black hover:text-white'
+              : 'border-white/35 bg-white/10 backdrop-blur-md text-white hover:bg-white/20'
           }`}
-
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <span>{mobileMenuOpen ? 'Close' : 'Menu'}</span>
         </button>
       </div>
 

@@ -41,7 +41,7 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectCate
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="font-display font-extrabold uppercase text-4xl sm:text-5xl md:text-6xl tracking-tight text-black"
+            className="font-cobe font-extrabold uppercase text-4xl sm:text-5xl md:text-6xl tracking-tight text-black"
           >
             OUR SERVICES
           </motion.h2>
@@ -74,7 +74,7 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectCate
                 <div className="flex items-end justify-between w-full">
                   {/* Left Text */}
                   <div>
-                    <h3 className="font-display font-bold uppercase text-2xl sm:text-3xl tracking-tight text-white mb-1">
+                    <h3 className="font-cobe font-bold uppercase text-2xl sm:text-3xl tracking-tight text-white mb-1">
                       {cat.title}
                     </h3>
                     <p className="text-sm text-neutral-300 font-normal tracking-wide">

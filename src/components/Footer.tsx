@@ -7,15 +7,83 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
   return (
-    <footer id="contact" className="bg-neutral-900 text-white pt-24 pb-12 px-6 md:px-12 border-t border-neutral-800">
+    <footer id="contact" className="bg-neutral-900 text-white pt-16 md:pt-24 pb-12 px-6 md:px-12 border-t border-neutral-800">
       <div className="max-w-7xl mx-auto">
+        {/* Contact Form Section matching reference Screen 4 (Mobile Only) */}
+        <div className="md:hidden pb-12 border-b border-neutral-800 grid grid-cols-1 gap-8 items-start mb-12">
+          <div className="lg:col-span-6 space-y-4">
+            <div className="inline-flex items-center px-4 py-1 border border-neutral-700 rounded-full text-xs font-semibold tracking-widest uppercase text-neutral-300">
+              GET IN TOUCH
+            </div>
+            <h2 className="font-cobe font-extrabold uppercase text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-white">
+              <span>WE'D</span><br />
+              <span>LOVE TO</span><br />
+              <span>HEAR</span><br />
+              <span>FROM YOU</span>
+            </h2>
+          </div>
+
+          <div className="lg:col-span-6">
+            <form onSubmit={(e) => { e.preventDefault(); alert('Thank you! Your message has been sent to the concierge.'); }} className="space-y-6">
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-1.5">
+                  Full name*
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Enter name"
+                  className="w-full bg-transparent border-b border-neutral-700 py-2.5 text-white placeholder-neutral-500 focus:outline-hidden focus:border-white transition-colors text-sm"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-1.5">
+                  Email*
+                </label>
+                <input
+                  type="email"
+                  required
+                  placeholder="Enter email"
+                  className="w-full bg-transparent border-b border-neutral-700 py-2.5 text-white placeholder-neutral-500 focus:outline-hidden focus:border-white transition-colors text-sm"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-1.5">
+                  Message*
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Say Hi!"
+                  className="w-full bg-transparent border-b border-neutral-700 py-2.5 text-white placeholder-neutral-500 focus:outline-hidden focus:border-white transition-colors text-sm"
+                />
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  className="w-full sm:w-auto px-10 py-3.5 bg-white text-black font-bold uppercase text-xs tracking-widest hover:bg-neutral-200 transition-colors cursor-pointer"
+                >
+                  Send Message →
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
         {/* Top Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-neutral-800">
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-6">
-            <h2 className="font-display font-bold text-3xl sm:text-4xl tracking-wider uppercase text-white">
-              LUNARIA<span className="text-amber-500">.</span>
-            </h2>
+            <a href="#" className="inline-block transition-opacity hover:opacity-85" aria-label="Alora Home">
+              <img
+                src="/images/logo_white.png"
+                alt="Alora Logo"
+                className="h-10 sm:h-12 w-auto object-contain"
+              />
+            </a>
             <p className="text-neutral-400 text-sm sm:text-base leading-relaxed max-w-sm font-normal">
               A sanctuary for modern women. Experience bespoke skincare, soothing body rituals, and high-performance hair therapy in an atmosphere of quiet luxury.
             </p>
@@ -33,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
 
           {/* Location & Hours */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-display font-bold uppercase text-xs tracking-widest text-neutral-400">
+            <h4 className="font-cobe font-bold uppercase text-xs tracking-widest text-neutral-400">
               Studio Location
             </h4>
             <div className="text-sm text-neutral-300 space-y-2 leading-relaxed font-normal">
@@ -47,14 +115,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-amber-500 shrink-0" />
-                <span>concierge@lunariastudio.com</span>
+                <span>concierge@alorastudio.com</span>
               </p>
             </div>
           </div>
 
           {/* Hours & Social */}
           <div className="lg:col-span-4 space-y-6">
-            <h4 className="font-display font-bold uppercase text-xs tracking-widest text-neutral-400">
+            <h4 className="font-cobe font-bold uppercase text-xs tracking-widest text-neutral-400">
               Hours of Tranquility
             </h4>
             <div className="text-xs sm:text-sm text-neutral-300 space-y-2 font-normal">
@@ -91,7 +159,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
-          <p>© {new Date().getFullYear()} Lunaria Studio. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Alora Studio. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-neutral-300 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-neutral-300 transition-colors">Terms of Service</a>

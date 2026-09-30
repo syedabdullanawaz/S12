@@ -13,7 +13,7 @@ export const Statement: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.9 }}
-          className="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight uppercase leading-[1.15] max-w-5xl"
+          className="font-cobe font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight uppercase leading-[1.15] max-w-5xl"
         >
           <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-2">
             <span>WE</span>
@@ -54,16 +54,55 @@ export const Statement: React.FC = () => {
           </div>
         </motion.div>
 
+        {/* Studio Specs Card matching reference Screen 3 (Mobile Only) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="md:hidden mt-8 w-full max-w-xl mx-auto relative h-56 rounded-2xl overflow-hidden text-white flex flex-col justify-between p-6 border border-black/10 shadow-lg group text-left"
+        >
+          {/* Background image */}
+          <img
+            src="/images/body-card.jpg"
+            alt="Alora Studio Atmosphere"
+            className="absolute inset-0 w-full h-full object-cover brightness-[0.55] contrast-[1.05]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+
+          {/* Stats top */}
+          <div className="relative z-10 flex items-start justify-between w-full">
+            <div>
+              <span className="text-xs uppercase tracking-widest text-neutral-300 font-semibold block">Years</span>
+              <span className="font-cobe font-extrabold text-3xl text-white">5</span>
+            </div>
+            <div className="text-right">
+              <span className="text-xs uppercase tracking-widest text-neutral-300 font-semibold block">Area:</span>
+              <span className="font-cobe font-extrabold text-2xl text-white">465 SQ.M.</span>
+            </div>
+          </div>
+
+          {/* Read More button */}
+          <div className="relative z-10 flex justify-start">
+            <button
+              onClick={() => setReadMoreOpen(!readMoreOpen)}
+              className="text-sm font-semibold text-white border-b border-white pb-0.5 hover:text-neutral-300 hover:border-neutral-300 transition-colors cursor-pointer"
+            >
+              {readMoreOpen ? 'Show Less' : 'Read More'}
+            </button>
+          </div>
+        </motion.div>
+
         {/* Subtitle Body Text */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-10 md:mt-14 max-w-2xl text-base md:text-lg text-neutral-700 leading-relaxed font-normal"
+          className="mt-8 md:mt-14 max-w-2xl text-base md:text-lg text-neutral-700 leading-relaxed font-normal"
         >
           <p>
-            Lunaria is a premium beauty studio for women, offering expert care for skin, body, and hair. We provide personalized consultations to select treatments that precisely address each client's individual needs.
+            Alora is a premium beauty studio for women, offering expert care for skin, body, and hair. We provide personalized consultations to select treatments that precisely address each client's individual needs.
           </p>
 
           {/* Expandable text when Read More is clicked */}
@@ -78,17 +117,17 @@ export const Statement: React.FC = () => {
           )}
         </motion.div>
 
-        {/* Read More Button */}
+        {/* Read More Button on PC (Original Layout) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-8"
+          className="mt-8 hidden md:block"
         >
           <button
             onClick={() => setReadMoreOpen(!readMoreOpen)}
-            className="text-base font-semibold text-black border-b-2 border-black pb-0.5 hover:text-neutral-600 hover:border-neutral-600 transition-colors"
+            className="text-base font-semibold text-black border-b-2 border-black pb-0.5 hover:text-neutral-600 hover:border-neutral-600 transition-colors cursor-pointer"
           >
             {readMoreOpen ? 'Show Less' : 'Read More'}
           </button>

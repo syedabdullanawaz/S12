@@ -82,9 +82,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           {/* Header */}
           <div className="mb-8">
             <span className="text-xs uppercase tracking-widest font-bold text-neutral-500 block mb-1">
-              Lunaria Appointments
+              Alora Appointments
             </span>
-            <h3 className="font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-black">
+            <h3 className="font-cobe font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-black">
               {step === 4 ? 'Appointment Confirmed' : 'Book Your Treatment'}
             </h3>
           </div>
@@ -118,11 +118,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     }`}
                   >
                     <div>
-                      <h4 className="font-display font-bold uppercase text-sm">{srv.title}</h4>
+                      <h4 className="font-cobe font-bold uppercase text-sm">{srv.title}</h4>
                       <p className="text-xs text-neutral-500 mt-0.5">{srv.duration}</p>
                     </div>
                     <div className="text-right">
-                      <span className="font-display font-bold text-base">${srv.price}</span>
+                      <span className="font-cobe font-bold text-base text-black">${srv.price}</span>
                     </div>
                   </div>
                 ))}
@@ -183,8 +183,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <div className="space-y-4">
               <div className="bg-white p-4 border border-black/15 mb-4 text-xs space-y-1">
                 <p className="font-bold text-black uppercase">{selectedService.title}</p>
-                <p className="text-neutral-600">
-                  {selectedDate} at {selectedTime} (${selectedService.price})
+                <p className="text-neutral-600 flex items-center gap-1">
+                  <span>{selectedDate} at {selectedTime}</span>
+                  <span>(<span className="font-cobe font-bold text-black">${selectedService.price}</span>)</span>
                 </p>
               </div>
 
@@ -251,7 +252,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <span className="text-xs uppercase tracking-widest font-mono text-neutral-500 block mb-1">
                   Confirmation Code: {bookingRef}
                 </span>
-                <h4 className="font-display font-extrabold uppercase text-xl text-black">
+                <h4 className="font-cobe font-extrabold uppercase text-xl text-black">
                   We Look Forward to Welcoming You
                 </h4>
               </div>
@@ -273,7 +274,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </div>
                 <div className="flex justify-between pt-1">
                   <span className="text-neutral-500">Total:</span>
-                  <span className="font-bold text-black text-sm">${selectedService.price}</span>
+                  <span className="font-cobe font-bold text-black text-sm">${selectedService.price}</span>
                 </div>
               </div>
 
