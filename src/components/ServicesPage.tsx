@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Search, ArrowLeft, Crown } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Search, ArrowLeft } from 'lucide-react';
 import { fullServicesCategories, ServiceMainCategory } from '../data/fullServicesData';
 import { ServiceItem } from '../types';
 
@@ -426,11 +426,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onBackToHome, onBook
             </div>
           </div>
 
-          {/* Bottom LUXE Savings Banner */}
-          <div className="mt-6 bg-neutral-900 text-white rounded-lg p-3 flex items-center justify-center gap-2 text-xs font-semibold shadow-md border border-neutral-800">
-            <Crown className="w-4 h-4 text-amber-400" />
-            <span>Save more with <strong className="text-amber-400">LUXE</strong> membership</span>
-          </div>
+
         </div>
       </div>
     </div>
