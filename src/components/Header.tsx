@@ -65,16 +65,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onScrollToService
             About Studio
           </a>
           <a
-            href="#rituals"
-            className={`transition-colors hover:opacity-75 ${scrolled ? 'text-black' : 'text-white'}`}
-          >
-            Special Rituals
-          </a>
-          <a
             href="#contact"
             className={`transition-colors hover:opacity-75 ${scrolled ? 'text-black' : 'text-white'}`}
           >
-            Contact
+            Contact & Location
           </a>
         </nav>
 
