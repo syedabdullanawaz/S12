@@ -100,17 +100,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onScrollToService
           </button>
         </div>
 
-        {/* Mobile Menu Button matching reference */}
+        {/* Mobile Menu Button - 3 Lines Hamburger */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation menu"
-          className={`md:hidden px-3.5 py-1.5 rounded-md border text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
+          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          className={`md:hidden p-2 rounded-lg transition-colors cursor-pointer flex items-center justify-center ${
             scrolled || mobileMenuOpen
-              ? 'border-black/25 bg-white/70 backdrop-blur-md text-black hover:bg-black hover:text-white'
-              : 'border-white/35 bg-white/10 backdrop-blur-md text-white hover:bg-white/20'
+              ? 'text-black hover:bg-black/5'
+              : 'text-white hover:bg-white/10'
           }`}
         >
-          <span>{mobileMenuOpen ? 'Close' : 'Menu'}</span>
+          {mobileMenuOpen ? (
+            <X className="w-6 h-6 stroke-[2.2]" />
+          ) : (
+            <Menu className="w-6 h-6 stroke-[2.2]" />
+          )}
         </button>
       </div>
 
