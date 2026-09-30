@@ -14,7 +14,8 @@ export interface OfferSlide {
   description: string;
   promoCode: string;
   validUntil: string;
-  image: string;
+  mobileImage: string;
+  desktopImage: string;
 }
 
 const OFFERS: OfferSlide[] = [
@@ -26,7 +27,8 @@ const OFFERS: OfferSlide[] = [
     description: 'Transform your style with bespoke cuts, luxury shampoo wash, and blow-dry setting by master hair stylists.',
     promoCode: 'ALORA20',
     validUntil: 'Limited Time Offer',
-    image: '/images/services/hair-essential.jpg',
+    mobileImage: '/images/services/hair-essential.jpg',
+    desktopImage: '/images/offers_desktop/facial-desktop.jpg',
   },
   {
     id: 'mani-pedi-offer',
@@ -36,7 +38,8 @@ const OFFERS: OfferSlide[] = [
     description: 'Treat your hands & feet to deep exfoliation, gel manicure, and a soothing aromatherapy oil massage.',
     promoCode: 'GLOWFEET',
     validUntil: 'This Week Only',
-    image: '/images/services/mani-pedi.jpg',
+    mobileImage: '/images/services/mani-pedi.jpg',
+    desktopImage: '/images/offers_desktop/nail-desktop.jpg',
   },
   {
     id: 'skincare-offer',
@@ -46,7 +49,8 @@ const OFFERS: OfferSlide[] = [
     description: 'Deep pore purification and hyaluronic acid infusion for instant skin clarity, hydration, and event radiance.',
     promoCode: 'RADIANCE15',
     validUntil: 'Special Deal',
-    image: '/images/services/skin-care.jpg',
+    mobileImage: '/images/services/skin-care.jpg',
+    desktopImage: '/images/offers_desktop/skincare-desktop.jpg',
   },
   {
     id: 'body-spa-offer',
@@ -56,7 +60,8 @@ const OFFERS: OfferSlide[] = [
     description: 'Melt away chronic tension and detoxify skin with heated basalt stones and organic botanical oil wraps.',
     promoCode: 'SANCTUARY25',
     validUntil: 'Weekday Sanctuary',
-    image: '/images/services/body-rituals.jpg',
+    mobileImage: '/images/services/body-rituals.jpg',
+    desktopImage: '/images/offers_desktop/spa-desktop.jpg',
   },
 ];
 
@@ -126,11 +131,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             exit="exit"
             className="absolute inset-0 w-full h-full"
           >
-            <img
-              src={currentOffer.image}
-              alt={currentOffer.title}
-              className="w-full h-full object-cover object-center contrast-[1.06] brightness-[0.95] saturate-[1.08] transform scale-[1.01]"
-            />
+            <picture className="block w-full h-full">
+              {/* Desktop specific offer image */}
+              <source media="(min-width: 768px)" srcSet={currentOffer.desktopImage} />
+              {/* Mobile specific offer image */}
+              <img
+                src={currentOffer.mobileImage}
+                alt={currentOffer.title}
+                className="w-full h-full object-cover object-center contrast-[1.06] brightness-[0.95] saturate-[1.08] transform scale-[1.01]"
+              />
+            </picture>
             {/* Subtle Gradient Overlay solely at the bottom for sharp text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
           </motion.div>
