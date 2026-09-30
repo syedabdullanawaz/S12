@@ -149,10 +149,10 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
   };
 
   return (
-    <section id="services-catalogue" className="py-20 md:py-32 bg-[#f7f6f2] text-black px-4 sm:px-6 md:px-12">
+    <section id="services-catalogue" className="py-14 sm:py-20 md:py-32 bg-[#f7f6f2] text-black px-3.5 sm:px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-6 sm:mb-10 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -165,7 +165,7 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
         </div>
 
         {/* 8 Grid Cards: 4x2 on PC, 2x4 on Mobile */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-5 lg:gap-6">
           {categories.map((cat, index) => (
             <motion.div
               key={cat.id}
@@ -174,7 +174,7 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
               onClick={() => handleCardClick(cat)}
-              className="group relative h-[220px] sm:h-[280px] md:h-[350px] lg:h-[390px] rounded-none overflow-hidden cursor-pointer shadow-xs hover:shadow-xl transition-all duration-500"
+              className="group relative h-[160px] sm:h-[260px] md:h-[350px] lg:h-[390px] rounded-none overflow-hidden cursor-pointer shadow-xs hover:shadow-xl transition-all duration-500"
             >
               {/* Card Image */}
               <img
@@ -187,20 +187,20 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-300 group-hover:from-black/90" />
 
               {/* Card Content Overlay */}
-              <div className="absolute inset-0 p-3 sm:p-5 md:p-6 flex flex-col justify-end text-white">
+              <div className="absolute inset-0 p-2.5 sm:p-5 md:p-6 flex flex-col justify-end text-white">
                 <div className="flex items-end justify-between w-full gap-1.5">
                   {/* Left Text */}
                   <div>
-                    <h3 className="font-cobe font-bold uppercase text-xs sm:text-base md:text-lg lg:text-xl tracking-tight text-white mb-0.5 sm:mb-1 leading-tight sm:leading-snug">
+                    <h3 className="font-cobe font-bold uppercase text-[11px] sm:text-base md:text-lg lg:text-xl tracking-tight text-white mb-0.5 sm:mb-1 leading-tight sm:leading-snug">
                       {cat.title}
                     </h3>
-                    <p className="text-[11px] sm:text-xs md:text-sm text-neutral-300 font-normal tracking-wide">
+                    <p className="text-[10px] sm:text-xs md:text-sm text-neutral-300 font-normal tracking-wide">
                       {cat.countText}
                     </p>
                   </div>
 
                   {/* Right Icon */}
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full border border-white/30 bg-black/25 backdrop-blur-xs flex items-center justify-center text-white text-xs sm:text-sm md:text-base font-bold group-hover:bg-white group-hover:text-black transition-all duration-300 shrink-0">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full border border-white/30 bg-black/25 backdrop-blur-xs flex items-center justify-center text-white text-[10px] sm:text-sm md:text-base font-bold group-hover:bg-white group-hover:text-black transition-all duration-300 shrink-0">
                     {cat.iconSymbol}
                   </div>
                 </div>

@@ -19,14 +19,13 @@ export const Statement: React.FC = () => {
               delay={30}
               duration={0.8}
             />
-            <span className="inline-flex items-center h-[1.1em] px-1 overflow-hidden align-middle my-auto">
-              <span className="w-12 sm:w-20 md:w-24 h-7 sm:h-11 md:h-12 rounded-full overflow-hidden border border-black/15 shadow-sm inline-block transform hover:scale-105 transition-transform duration-300">
-                <img
-                  src="/images/services/skin-care.jpg"
-                  alt="Beauty thumbnail"
-                  className="w-full h-full object-cover brightness-105"
-                />
-              </span>
+            {/* Cutout Hair Dryer */}
+            <span className="inline-flex items-center justify-center align-middle mx-1 sm:mx-2 md:mx-3 my-auto">
+              <img
+                src="/images/hair_dryer.png"
+                alt="Luxury Salon Hair Dryer"
+                className="h-9 sm:h-14 md:h-18 lg:h-22 w-auto object-contain transform -rotate-12 hover:scale-115 hover:-rotate-6 transition-all duration-300 drop-shadow-md select-none cursor-pointer"
+              />
             </span>
             <SplitText
               text="HELP CREATE"
@@ -55,14 +54,13 @@ export const Statement: React.FC = () => {
               delay={30}
               duration={0.8}
             />
-            <span className="inline-flex items-center h-[1.1em] px-1 overflow-hidden align-middle my-auto">
-              <span className="w-12 sm:w-20 md:w-24 h-7 sm:h-11 md:h-12 rounded-full overflow-hidden border border-black/15 shadow-sm inline-block transform hover:scale-105 transition-transform duration-300">
-                <img
-                  src="/images/services/hair-treatment.jpg"
-                  alt="Glow thumbnail"
-                  className="w-full h-full object-cover brightness-105"
-                />
-              </span>
+            {/* Cutout Scissors */}
+            <span className="inline-flex items-center justify-center align-middle mx-1 sm:mx-2 md:mx-3 my-auto">
+              <img
+                src="/images/scissors.png"
+                alt="Professional Hairdressing Scissors"
+                className="h-9 sm:h-14 md:h-18 lg:h-22 w-auto object-contain transform rotate-12 hover:scale-115 hover:rotate-6 transition-all duration-300 drop-shadow-md select-none cursor-pointer"
+              />
             </span>
             <SplitText
               text="AND"
