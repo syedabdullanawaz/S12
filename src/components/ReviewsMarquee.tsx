@@ -130,10 +130,10 @@ export const ReviewsMarquee: React.FC = () => {
               />
             </svg>
 
-            {/* 5 Gold Stars */}
+            {/* 5 Stars */}
             <div className="flex items-center gap-1">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
+                <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-black text-black" />
               ))}
             </div>
 
@@ -221,7 +221,7 @@ const ReviewCard: React.FC<{ review: ReviewItem; googleMapsUrl: string }> = ({ r
         <div className="flex items-center justify-between mb-2 sm:mb-3 md:mb-4">
           <div className="flex items-center gap-0.5 sm:gap-1">
             {Array.from({ length: review.rating }).map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
+              <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-black text-black" />
             ))}
           </div>
           <Quote className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-300 group-hover/card:text-black transition-colors" />

@@ -253,7 +253,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
             {/* Header */}
             <div className="mb-8">
-              <span className="text-xs uppercase tracking-widest font-bold text-amber-600 block mb-1">
+              <span className="text-xs uppercase tracking-widest font-bold text-neutral-500 block mb-1">
                 Alora Salon Appointments • HSR Layout
               </span>
               <h3 className="font-cobe font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-black">
@@ -477,7 +477,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             {step === 4 && (
               <div className="text-center py-6 space-y-6">
                 <div className="w-16 h-16 bg-black text-white rounded-full mx-auto flex items-center justify-center">
-                  <CheckCircle2 className="w-9 h-9 text-amber-400" />
+                  <CheckCircle2 className="w-9 h-9 text-white" />
                 </div>
 
                 <div>
@@ -579,7 +579,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   {/* Header */}
                   <div className="flex items-center justify-between mb-4 pb-3 border-b border-black/10">
                     <div>
-                      <span className="text-[10px] uppercase tracking-widest font-bold text-amber-600 block">
+                      <span className="text-[10px] uppercase tracking-widest font-bold text-neutral-500 block">
                         Pick Your Date
                       </span>
                       <h4 className="font-cobe font-black text-lg text-black">
@@ -707,7 +707,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 >
                   {/* Header */}
                   <div className="text-center mb-3">
-                    <span className="text-[10px] uppercase tracking-widest font-bold text-amber-600 block">
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-neutral-500 block">
                       Pick Your Timeslot
                     </span>
                     <h4 className="font-cobe font-black text-lg text-black">Select Salon Time</h4>

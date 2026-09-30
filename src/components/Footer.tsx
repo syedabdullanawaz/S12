@@ -30,14 +30,14 @@ export const Footer: React.FC<FooterProps> = () => {
               <a
                 href="#"
                 aria-label="Instagram"
-                className="w-9 h-9 rounded-full border border-neutral-700 flex items-center justify-center text-white hover:border-amber-400 hover:text-amber-400 transition-colors"
+                className="w-9 h-9 rounded-full border border-neutral-700 flex items-center justify-center text-neutral-300 hover:border-white hover:text-white hover:bg-white/10 transition-colors"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a
                 href="#"
                 aria-label="Facebook"
-                className="w-9 h-9 rounded-full border border-neutral-700 flex items-center justify-center text-white hover:border-amber-400 hover:text-amber-400 transition-colors"
+                className="w-9 h-9 rounded-full border border-neutral-700 flex items-center justify-center text-neutral-300 hover:border-white hover:text-white hover:bg-white/10 transition-colors"
               >
                 <Facebook className="w-4 h-4" />
               </a>
@@ -54,9 +54,9 @@ export const Footer: React.FC<FooterProps> = () => {
                 href={mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-2.5 hover:text-amber-400 transition-colors group"
+                className="flex items-start gap-2.5 hover:text-white transition-colors group"
               >
-                <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                <MapPin className="w-4 h-4 text-neutral-400 group-hover:text-white shrink-0 mt-1 group-hover:scale-110 transition-all" />
                 <span>
                   <strong className="text-white">Alora Luxury Salon</strong><br />
                   No 86, 2nd Floor, Radhakrishnan Grand,<br />
@@ -65,16 +65,16 @@ export const Footer: React.FC<FooterProps> = () => {
                 </span>
               </a>
 
-              <p className="flex items-center gap-2.5 pt-1">
-                <Phone className="w-4 h-4 text-amber-500 shrink-0" />
-                <a href="tel:+916364217307" className="hover:text-amber-400 font-bold text-white transition-colors">
+              <p className="flex items-center gap-2.5 pt-1 group">
+                <Phone className="w-4 h-4 text-neutral-400 group-hover:text-white shrink-0 transition-colors" />
+                <a href="tel:+916364217307" className="hover:text-white font-bold text-white transition-colors">
                   +91 63642 17307
                 </a>
               </p>
 
-              <p className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-amber-500 shrink-0" />
-                <a href="mailto:aloraluxurysalon@gmail.com" className="hover:text-amber-400 text-neutral-300 transition-colors">
+              <p className="flex items-center gap-2.5 group">
+                <Mail className="w-4 h-4 text-neutral-400 group-hover:text-white shrink-0 transition-colors" />
+                <a href="mailto:aloraluxurysalon@gmail.com" className="hover:text-white text-neutral-300 transition-colors">
                   aloraluxurysalon@gmail.com
                 </a>
               </p>
@@ -84,13 +84,13 @@ export const Footer: React.FC<FooterProps> = () => {
           {/* Hours */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-cobe font-bold uppercase text-xs tracking-widest text-neutral-400 flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-amber-500" />
+              <Clock className="w-3.5 h-3.5 text-neutral-400" />
               <span>Opening Hours</span>
             </h4>
             <div className="text-xs sm:text-sm text-neutral-300 space-y-2 font-normal">
               <div className="flex justify-between border-b border-neutral-800 pb-2">
                 <span>Monday – Sunday</span>
-                <span className="font-mono text-amber-400 font-semibold">09:00 AM – 09:00 PM</span>
+                <span className="font-mono text-white font-semibold">09:00 AM – 09:00 PM</span>
               </div>
               <p className="text-xs text-neutral-400 pt-1 leading-normal">
                 Open 7 days a week. Appointments & walk-ins welcome.
