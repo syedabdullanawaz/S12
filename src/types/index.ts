@@ -13,6 +13,7 @@ export interface ServiceItem {
   }[];
   images: string[];
   featured?: boolean;
+  currency?: string;
 }
 
 export interface ServiceCategory {

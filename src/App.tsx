@@ -15,6 +15,7 @@ import { servicesData } from './data/servicesData';
 export const App: React.FC = () => {
   const [view, setView] = useState<'home' | 'services'>('home');
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'skincare' | 'body' | 'hair'>('skincare');
+  const [selectedOverviewCategory, setSelectedOverviewCategory] = useState<string>('hair-essentials');
   const [activeModalService, setActiveModalService] = useState<ServiceItem | null>(null);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingService, setBookingService] = useState<ServiceItem | null>(null);
@@ -31,8 +32,8 @@ export const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSelectOverviewCategory = (catId: 'skincare' | 'body' | 'hair') => {
-    setSelectedCategory(catId);
+  const handleSelectOverviewCategory = (catId: string) => {
+    setSelectedOverviewCategory(catId);
     handleOpenServicesPage();
   };
 
@@ -45,6 +46,7 @@ export const App: React.FC = () => {
     <div className="min-h-screen bg-[#f7f6f2] text-black selection:bg-black selection:text-white font-sans">
       {view === 'services' ? (
         <ServicesPage
+          initialCategoryId={selectedOverviewCategory}
           onBackToHome={() => {
             setView('home');
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -65,9 +67,9 @@ export const App: React.FC = () => {
           {/* Statement Headline Section with Inline Pills */}
           <Statement />
 
-          {/* 3-Card Services Overview Grid */}
+          {/* 8-Card Services Overview Grid */}
           <ServicesOverview
-            onSelectCategory={handleSelectOverviewCategory}
+            onSelectService={(service) => setActiveModalService(service)}
             onViewAll={handleOpenServicesPage}
           />
 

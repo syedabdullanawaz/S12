@@ -5,12 +5,13 @@ import { fullServicesCategories, ServiceMainCategory } from '../data/fullService
 import { ServiceItem } from '../types';
 
 interface ServicesPageProps {
+  initialCategoryId?: string;
   onBackToHome: () => void;
   onBookServiceItem: (service: ServiceItem) => void;
 }
 
-export const ServicesPage: React.FC<ServicesPageProps> = ({ onBackToHome, onBookServiceItem }) => {
-  const [selectedCategoryId, setSelectedCategoryId] = useState<string>('hair-essentials');
+export const ServicesPage: React.FC<ServicesPageProps> = ({ initialCategoryId, onBackToHome, onBookServiceItem }) => {
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string>(initialCategoryId || 'hair-essentials');
   const [genderFilter, setGenderFilter] = useState<'all' | 'women' | 'men'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [openAccordions, setOpenAccordions] = useState<{ [key: string]: boolean }>({

@@ -82,7 +82,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
 
               {/* Price & Duration */}
               <div className="flex items-center gap-3 text-sm sm:text-base font-bold text-black border-b border-black/10 pb-2 md:pb-3">
-                <span className="font-cobe font-bold text-lg sm:text-xl text-black">${service.price}</span>
+                <span className="font-cobe font-bold text-lg sm:text-xl text-black">{service.currency || '$'}{service.price}</span>
                 <div className="flex items-center gap-1.5 text-neutral-700 text-xs sm:text-sm font-semibold">
                   <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black" />
                   <span>{service.duration}</span>

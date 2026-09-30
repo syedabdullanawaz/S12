@@ -8,3 +8,4 @@ all_frames/
 extracted_assets/
 .env
 .env.local
+*.tsbuildinfo
