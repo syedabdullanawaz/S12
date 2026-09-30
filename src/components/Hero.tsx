@@ -75,12 +75,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
     setCurrentIndex((prev) => (prev + 1) % OFFERS.length);
   }, []);
 
-  // 3 seconds auto-scroll
+  // 2 seconds auto-scroll
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
       nextSlide();
-    }, 3000);
+    }, 2000);
     return () => clearInterval(timer);
   }, [nextSlide, isPaused]);
 
