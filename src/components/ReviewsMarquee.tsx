@@ -163,13 +163,20 @@ export const ReviewsMarquee: React.FC = () => {
 
         {/* Row 1: Slow Scroll Left */}
         <div className="flex w-full overflow-hidden select-none group gap-6">
-          <div className="flex shrink-0 gap-6 py-2 animate-marquee-scroll-left">
-            {[...REAL_GOOGLE_REVIEWS_ROW_1, ...REAL_GOOGLE_REVIEWS_ROW_1, ...REAL_GOOGLE_REVIEWS_ROW_1].map((review, idx) => (
+          <div
+            className="flex shrink-0 gap-6 py-2 animate-marquee-scroll-left"
+            style={{ willChange: 'transform', transform: 'translate3d(0, 0, 0)', backfaceVisibility: 'hidden' }}
+          >
+            {[...REAL_GOOGLE_REVIEWS_ROW_1, ...REAL_GOOGLE_REVIEWS_ROW_1].map((review, idx) => (
               <ReviewCard key={`g1-a-${review.id}-${idx}`} review={review} googleMapsUrl={googleMapsUrl} />
             ))}
           </div>
-          <div className="flex shrink-0 gap-6 py-2 animate-marquee-scroll-left" aria-hidden="true">
-            {[...REAL_GOOGLE_REVIEWS_ROW_1, ...REAL_GOOGLE_REVIEWS_ROW_1, ...REAL_GOOGLE_REVIEWS_ROW_1].map((review, idx) => (
+          <div
+            className="flex shrink-0 gap-6 py-2 animate-marquee-scroll-left"
+            aria-hidden="true"
+            style={{ willChange: 'transform', transform: 'translate3d(0, 0, 0)', backfaceVisibility: 'hidden' }}
+          >
+            {[...REAL_GOOGLE_REVIEWS_ROW_1, ...REAL_GOOGLE_REVIEWS_ROW_1].map((review, idx) => (
               <ReviewCard key={`g1-b-${review.id}-${idx}`} review={review} googleMapsUrl={googleMapsUrl} />
             ))}
           </div>
@@ -177,13 +184,20 @@ export const ReviewsMarquee: React.FC = () => {
 
         {/* Row 2: Slow Scroll Right */}
         <div className="flex w-full overflow-hidden select-none group gap-6">
-          <div className="flex shrink-0 gap-6 py-2 animate-marquee-scroll-right">
-            {[...REAL_GOOGLE_REVIEWS_ROW_2, ...REAL_GOOGLE_REVIEWS_ROW_2, ...REAL_GOOGLE_REVIEWS_ROW_2].map((review, idx) => (
+          <div
+            className="flex shrink-0 gap-6 py-2 animate-marquee-scroll-right"
+            style={{ willChange: 'transform', transform: 'translate3d(0, 0, 0)', backfaceVisibility: 'hidden' }}
+          >
+            {[...REAL_GOOGLE_REVIEWS_ROW_2, ...REAL_GOOGLE_REVIEWS_ROW_2].map((review, idx) => (
               <ReviewCard key={`g2-a-${review.id}-${idx}`} review={review} googleMapsUrl={googleMapsUrl} />
             ))}
           </div>
-          <div className="flex shrink-0 gap-6 py-2 animate-marquee-scroll-right" aria-hidden="true">
-            {[...REAL_GOOGLE_REVIEWS_ROW_2, ...REAL_GOOGLE_REVIEWS_ROW_2, ...REAL_GOOGLE_REVIEWS_ROW_2].map((review, idx) => (
+          <div
+            className="flex shrink-0 gap-6 py-2 animate-marquee-scroll-right"
+            aria-hidden="true"
+            style={{ willChange: 'transform', transform: 'translate3d(0, 0, 0)', backfaceVisibility: 'hidden' }}
+          >
+            {[...REAL_GOOGLE_REVIEWS_ROW_2, ...REAL_GOOGLE_REVIEWS_ROW_2].map((review, idx) => (
               <ReviewCard key={`g2-b-${review.id}-${idx}`} review={review} googleMapsUrl={googleMapsUrl} />
             ))}
           </div>
@@ -199,7 +213,8 @@ const ReviewCard: React.FC<{ review: ReviewItem; googleMapsUrl: string }> = ({ r
       href={googleMapsUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-[320px] sm:w-[380px] shrink-0 bg-white border border-black/10 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-black/20 transition-all duration-300 flex flex-col justify-between cursor-pointer group/card block"
+      style={{ contain: 'content' }}
+      className="w-[320px] sm:w-[380px] shrink-0 bg-white border border-black/10 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-black/20 transition-[box-shadow,border-color] duration-300 flex flex-col justify-between cursor-pointer group/card block"
     >
       <div>
         {/* Rating Stars & Quote Icon */}

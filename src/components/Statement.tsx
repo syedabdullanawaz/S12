@@ -24,7 +24,10 @@ export const Statement: React.FC = () => {
               <img
                 src="/images/hair_dryer.png"
                 alt="Luxury Salon Hair Dryer"
-                className="h-9 sm:h-14 md:h-18 lg:h-22 w-auto object-contain transform -rotate-12 hover:scale-115 hover:-rotate-6 transition-all duration-300 drop-shadow-md select-none cursor-pointer"
+                loading="lazy"
+                decoding="async"
+                style={{ willChange: 'transform' }}
+                className="h-9 sm:h-14 md:h-18 lg:h-22 w-auto object-contain transform -rotate-12 hover:scale-115 hover:-rotate-6 transition-transform duration-300 drop-shadow-md select-none cursor-pointer"
               />
             </span>
             <SplitText
@@ -59,7 +62,10 @@ export const Statement: React.FC = () => {
               <img
                 src="/images/scissors.png"
                 alt="Professional Hairdressing Scissors"
-                className="h-9 sm:h-14 md:h-18 lg:h-22 w-auto object-contain transform rotate-12 hover:scale-115 hover:rotate-6 transition-all duration-300 drop-shadow-md select-none cursor-pointer"
+                loading="lazy"
+                decoding="async"
+                style={{ willChange: 'transform' }}
+                className="h-9 sm:h-14 md:h-18 lg:h-22 w-auto object-contain transform rotate-12 hover:scale-115 hover:rotate-6 transition-transform duration-300 drop-shadow-md select-none cursor-pointer"
               />
             </span>
             <SplitText

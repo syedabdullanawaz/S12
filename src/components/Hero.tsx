@@ -145,7 +145,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             animate="center"
             exit="exit"
             className="absolute inset-0 w-full h-full"
-            style={{ willChange: 'transform, opacity' }}
+            style={{ willChange: 'transform, opacity', transform: 'translate3d(0, 0, 0)', backfaceVisibility: 'hidden' }}
           >
             <picture className="block w-full h-full">
               {/* Desktop specific offer image */}
@@ -170,7 +170,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
           {/* Left Side: Offer Title, Minimal White Tag, Promo Code & CTA */}
           <div className="md:col-span-8 lg:col-span-8 space-y-3 sm:space-y-4">
-            <AnimatePresence mode="popLayout">
+            <AnimatePresence initial={false}>
               <motion.div
                 key={`content-${currentOffer.id}`}
                 initial={{ opacity: 0, y: 10 }}
@@ -178,6 +178,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
                 className="space-y-2.5 sm:space-y-3"
+                style={{ willChange: 'transform, opacity', transform: 'translate3d(0, 0, 0)' }}
               >
                 {/* Minimalist White Discount Badge & Validity */}
                 <div className="inline-flex items-center gap-3">
