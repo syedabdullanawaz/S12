@@ -19,51 +19,51 @@ const PILLARS = [
   {
     number: '01',
     icon: Award,
-    title: 'Senior Master Specialists',
+    title: 'Expert Senior Stylists',
     description:
-      'Every stylist and aesthetician at Alora possesses over a decade of verified craft, trained in global precision cutting, balayage, and clinical dermatological care.',
+      'Trained specialists with 10+ years of experience in precision haircutting, balayage, and clinical skin care.',
   },
   {
     number: '02',
     icon: Leaf,
-    title: 'Certified Botanical & Organic',
+    title: 'Safe & Clean Products',
     description:
-      'We exclusively utilize ammonia-free hair colours, pure Italian liposoluble Rica waxes, and botanical skin infusions that nurture your body without harsh toxins.',
+      'We use ammonia-free hair colors, organic Italian Rica waxes, and toxin-free botanical skin formulations.',
   },
   {
     number: '03',
     icon: Sparkles,
-    title: 'Bespoke 1-on-1 Consultation',
+    title: 'Personalized Consultation',
     description:
-      'No rushed appointments. Every session begins with a diagnostic texture, tone, and facial structure assessment to craft results unique to you.',
+      'No rushed sessions. We check your skin type and hair texture first to tailor the best treatment for you.',
   },
   {
     number: '04',
     icon: ShieldCheck,
-    title: 'Hospital-Grade Hygiene Protocol',
+    title: 'Strict Hygiene Standards',
     description:
-      'We adhere to strict autoclave tool sterilization, single-use biodegradable client disposables, and sterile sanitization between every single appointment.',
+      'Fresh single-use disposables and 100% sterilized tools cleaned thoroughly before every client.',
   },
   {
     number: '05',
     icon: Gem,
-    title: 'Transparent Luxury, No Hidden Upsells',
+    title: 'Clear & Upfront Pricing',
     description:
-      'Upfront pricing with complete integrity. The price you see in our catalogue is exactly what you pay, with zero unexpected charges or pushy sales.',
+      'Honest pricing with no hidden charges, unexpected costs, or pushy product selling.',
   },
   {
     number: '06',
     icon: Clock,
-    title: 'Serene Sanctuary in HSR Layout',
+    title: 'Peaceful Salon Sanctuary',
     description:
-      'Designed as a tranquil oasis away from city noise. Enjoy ergonomic leather styling chairs, peaceful acoustic ambience, and artisanal gourmet refreshments.',
+      'Enjoy comfy seating, soothing ambient music, and a refreshing drink while our experts care for you.',
   },
 ];
 
 const STATS = [
-  { value: '4.6★', label: 'Google Rating', sub: '120+ Verified Reviews' },
-  { value: '15K+', label: 'Delighted Clients', sub: 'Across Bengaluru' },
-  { value: '100%', label: 'Clean Formulations', sub: 'Zero Harsh Chemicals' },
+  { value: '4.6★', label: 'Google Rating', sub: 'Top Rated in HSR' },
+  { value: '15K+', label: 'Happy Clients', sub: 'Across Bengaluru' },
+  { value: '100%', label: 'Safe Formulas', sub: 'Zero Harsh Chemicals' },
   { value: '7 Days', label: 'Open Daily', sub: '09:00 AM – 09:00 PM' },
 ];
 
@@ -84,9 +84,9 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenBooking }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5 }}
-            className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-neutral-500 mb-2.5 sm:mb-3.5 inline-block"
+            className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-neutral-500 mb-2.5 sm:mb-3.5 inline-block font-mono"
           >
-            The Alora Standard
+            The Alora Promise
           </motion.span>
 
           <motion.h2
@@ -96,7 +96,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenBooking }) => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-cobe font-extrabold uppercase text-3xl sm:text-5xl md:text-6xl tracking-tight text-black leading-[1.08]"
           >
-            Why Choose Us
+            WHY CHOOSE ALORA
           </motion.h2>
 
           <motion.p
@@ -106,8 +106,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenBooking }) => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-4 sm:mt-5 text-xs sm:text-sm md:text-base text-neutral-600 font-normal leading-relaxed max-w-2xl mx-auto"
           >
-            We redefined the traditional salon experience into an intentional sanctuary.
-            Where master craftsmanship, ethical formulations, and personalized luxury converge.
+            We focus on clean beauty, expert care, and a calm, relaxing salon experience for every client.
           </motion.p>
         </div>
 
@@ -123,7 +122,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenBooking }) => {
                 viewport={{ once: true, margin: '-30px' }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 style={{ willChange: 'transform', transform: 'translate3d(0, 0, 0)' }}
-                className="group relative bg-white p-6 sm:p-8 rounded-none border border-black/10 hover:border-black transition-all duration-300 shadow-2xs hover:shadow-lg flex flex-col justify-between"
+                className="group relative bg-white p-6 sm:p-8 rounded-2xl border border-black/10 hover:border-black/30 transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between"
               >
                 <div>
                   {/* Top Bar: Number & Icon */}
@@ -150,7 +149,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenBooking }) => {
                 {/* Subtle bottom accent line */}
                 <div className="mt-6 pt-4 border-t border-black/5 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 group-hover:text-black transition-colors">
                   <CheckCircle2 className="w-3.5 h-3.5 text-black" />
-                  <span>Verified Standard</span>
+                  <span>Quality Guaranteed</span>
                 </div>
               </motion.div>
             );
@@ -163,7 +162,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenBooking }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6 }}
-          className="bg-black text-white rounded-none border border-black overflow-hidden grid grid-cols-1 lg:grid-cols-12"
+          className="bg-black text-white rounded-2xl border border-black overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-xl"
         >
           {/* Left Column: Atmospheric Editorial Image */}
           <div className="lg:col-span-5 relative h-60 sm:h-72 lg:h-full min-h-[260px] overflow-hidden">
@@ -176,7 +175,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenBooking }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black" />
             <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
-              <span className="text-[10px] sm:text-xs font-mono tracking-widest uppercase bg-white/10 backdrop-blur-md px-3 py-1 border border-white/20 text-neutral-200">
+              <span className="text-[10px] sm:text-xs font-mono tracking-widest uppercase bg-white/10 backdrop-blur-md px-3 py-1 border border-white/20 text-neutral-200 rounded-full">
                 HSR Layout • Bengaluru
               </span>
             </div>
@@ -185,15 +184,14 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenBooking }) => {
           {/* Right Column: Statistics & Action */}
           <div className="lg:col-span-7 p-6 sm:p-10 md:p-12 flex flex-col justify-between">
             <div>
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 block mb-2">
-                Commitment to Excellence
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 block mb-2 font-mono">
+                Luxury Care
               </span>
               <h3 className="font-cobe font-extrabold uppercase text-xl sm:text-3xl md:text-4xl tracking-tight text-white mb-4 leading-tight">
-                Experience the Difference in Every Detail
+                Experience The Best Care For Hair, Skin & Nails
               </h3>
               <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal max-w-xl">
-                Whether visiting for a signature haircut, botanical scalp detox, acne-clearing facial,
-                or a relaxing full-body massage, you are in the hands of dedicated artisans.
+                Whether you need a quick haircut, a relaxing facial, or a full spa manicure, our team ensures you walk out feeling refreshed and glowing.
               </p>
             </div>
 

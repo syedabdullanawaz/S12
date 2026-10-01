@@ -5,6 +5,7 @@ import { Statement } from './components/Statement';
 import { ServicesOverview } from './components/ServicesOverview';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { ReviewsMarquee } from './components/ReviewsMarquee';
+import { SalonShowcase } from './components/SalonShowcase';
 import { ServiceModal } from './components/ServiceModal';
 import { BookingModal } from './components/BookingModal';
 import { ServicesPage } from './components/ServicesPage';
@@ -78,6 +79,9 @@ export const App: React.FC = () => {
 
           {/* Client Reviews Marquee */}
           <ReviewsMarquee />
+
+          {/* Salon Atmosphere Showcase */}
+          <SalonShowcase />
 
           {/* Footer */}
           <Footer onOpenBooking={handleOpenServicesPage} />
