@@ -202,11 +202,6 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
                       {cat.countText}
                     </p>
                   </div>
-
-                  {/* Right Icon */}
-                  <div className="w-5 h-5 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full border border-white/30 bg-black/25 backdrop-blur-xs flex items-center justify-center text-white text-[10px] sm:text-sm md:text-base font-bold group-hover:bg-white group-hover:text-black transition-all duration-300 shrink-0">
-                    {cat.iconSymbol}
-                  </div>
                 </div>
               </div>
             </motion.div>
