@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Statement } from './components/Statement';
 import { ServicesOverview } from './components/ServicesOverview';
+import { WhyChooseUs } from './components/WhyChooseUs';
 import { ReviewsMarquee } from './components/ReviewsMarquee';
 import { ServiceModal } from './components/ServiceModal';
 import { BookingModal } from './components/BookingModal';
@@ -71,6 +72,9 @@ export const App: React.FC = () => {
             onSelectService={(service) => setActiveModalService(service)}
             onViewAll={handleOpenServicesPage}
           />
+
+          {/* Why Choose Us Section */}
+          <WhyChooseUs onOpenBooking={handleOpenServicesPage} />
 
           {/* Client Reviews Marquee */}
           <ReviewsMarquee />

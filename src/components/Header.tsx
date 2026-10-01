@@ -70,10 +70,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onScrollToService
             Services
           </button>
           <a
-            href="#about"
+            href="#why-choose-us"
             className={`transition-colors hover:opacity-75 ${scrolled ? 'text-black' : 'text-white'}`}
           >
-            About Studio
+            Why Choose Us
           </a>
           <a
             href="#contact"
@@ -150,11 +150,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onScrollToService
                 Services
               </button>
               <a
-                href="#about"
+                href="#why-choose-us"
                 onClick={() => setMobileMenuOpen(false)}
                 className="font-display text-lg font-semibold tracking-wide"
               >
-                About Studio
+                Why Choose Us
               </a>
               <a
                 href="#contact"
